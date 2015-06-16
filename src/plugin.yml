@@ -1,6 +1,6 @@
-name: HelloWorld
+name: CowShooter
 
 author: Maria
-main: HelloWorldPlugin
+main: CowShooterPlugin
 
 version: 0.1
