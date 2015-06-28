@@ -8,6 +8,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
 /**
@@ -15,6 +17,12 @@ import org.bukkit.util.Vector;
  */
 public class CowShooterListener implements Listener
 {
+    private JavaPlugin plugin;
+
+    public CowShooterListener(JavaPlugin myPlugin)
+    {
+        plugin = myPlugin;
+    }
     @EventHandler
     public void onInteract(PlayerInteractEvent event)
     {
@@ -24,11 +32,16 @@ public class CowShooterListener implements Listener
             if(p.getItemInHand().getType() == Material.LEATHER)
             {
                 Location loc = p.getLocation();
+
                 Vector v = loc.getDirection();
                 v = v.multiply(3.0);
+
                 Cow cow = p.getWorld().spawn(loc, Cow.class);
                 cow.setVelocity(v);
                 cow.setFireTicks(20);
+
+                BukkitRunnable task = new CowTask(p.getWorld(), cow);
+                task.runTaskTimer(myPlugin,0L,0L)
 
             }
 

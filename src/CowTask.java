@@ -1,3 +1,5 @@
+import org.bukkit.World;
+import org.bukkit.entity.Cow;
 import org.bukkit.scheduler.BukkitRunnable;
 
 /**
@@ -5,5 +7,23 @@ import org.bukkit.scheduler.BukkitRunnable;
  */
 public class CowTask extends BukkitRunnable
 {
-    
+    private World world;
+    private Cow cow;
+
+    public CowTask(World myWorld, Cow myCow)
+    {
+        cow = myCow;
+        world = myWorld;
+    }
+
+    public void run()
+    {
+        /*
+        Check if Cow is on Ground
+            if y set explosion
+            if n keep burning
+                set cows health max
+         */
+    }
+
 }
