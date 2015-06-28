@@ -13,7 +13,7 @@ public class CowShooterPlugin extends JavaPlugin
     public void onEnable()
     {
         log.info("[CowShooterPlugin] Starting up....");
-        getServer().getPluginManager().registerEvents(new CowShooterListener(), this);
+        getServer().getPluginManager().registerEvents(new CowShooterListener(this), this);
     }
 
 

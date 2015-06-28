@@ -20,9 +20,11 @@ public class CowTask extends BukkitRunnable
     {
         /*
         Check if Cow is on Ground
-            if y set explosion
+            if y set explosion at cow loc
+            call cancel
             if n keep burning
-                set cows health max
+            set cows health max
+            set fire ticks to 20
          */
     }
 
